@@ -4,7 +4,7 @@ with open("message. txt", ' r') as f:
     contenu = f.read()
 
 
-a = input("Entrez le coefficient a: "))
+a = input("Entrez la clé :")
 
 # On crée un fichier txt et on écrit dedans
 with open("message_encrypte.txt", "w") as fichier:
