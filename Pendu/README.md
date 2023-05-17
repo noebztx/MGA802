@@ -1,4 +1,4 @@
-# Jeu de Pendu
+# Jeu du Pendu
 
 Ce dépôt contient un jeu de pendu réalisé en Python. Le jeu permet aux joueurs de deviner un mot en proposant des lettres et leur donne plusieurs chances pour trouver le mot correctement.
 
