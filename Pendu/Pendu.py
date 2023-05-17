@@ -2,6 +2,9 @@
 # Il a 6 chances pour deviner correctement toutes les lettres du mot.
 # importe le module random utilisé pour générer des nombres aléatoires
 import random
+import string
+
+alphabet = string.ascii_letters
 
 # Ouvrir le fichier en mode lecture
 with open("mots_pendu.txt", 'r') as f:
@@ -13,6 +16,7 @@ with open("mots_pendu.txt", 'r') as f:
 def choisir_mot(mots):
     # renvoie un mot choisi au hasard parmi la liste lue
     return random.choice(mots)
+
 
 # Fonction pour afficher les lettres trouvées
 def affichage(mot_aleatoire, lettres_proposees):
@@ -27,11 +31,17 @@ def affichage(mot_aleatoire, lettres_proposees):
             affichage += '_ '
     return affichage
 
+
 # Fonction pour entrer une lettre
 def lettre_input():
     lettre = input("Entrez une lettre : ")
-    # renvoie la lettre en minuscules
-    return lettre.lower()
+    if lettre in alphabet:
+        # renvoie la lettre en minuscules
+        return lettre.lower()
+    else:
+        print('Veuillez saisir une lettre seulement.')
+        return lettre_input()
+
 
 # Fonction qui lance le jeu
 def play_game(file_name):
