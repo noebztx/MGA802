@@ -1,16 +1,25 @@
+# Ce programme demande à l'utilisateur de fournir le numéro du profil NACA, la corde du profil,
+# le nombre de points le long de la corde et le type de distribution des points.
+# Il génère les tableaux de coordonnées x, yup et ydown en utilisant les équations spécifiées pour le profil NACA.
+# Le programme calcule l'épaisseur maximale et la position du maximum et affiche les résultats.
+# Il trace le profil NACA en utilisant Matplotlib.
+
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 # Fonction pour calculer les coordonnées du profil NACA
 def coordonnees_naca(naca, corde, nombre_points, distribution):
-    t = int(naca[2:]) / 100
 
+    t = int(naca[2:]) / 100  # Obtient l'épaisseur du profil NACA à partir du numéro du profil
+
+    # Génère les coordonnées x en fonction de la distribution spécifiée
     if distribution == "linéaire" or distribution == "L":
         xc = np.linspace(0, corde, nombre_points)
     if distribution == "non-uniforme" or distribution == "U":
         xc = 0.5 * (1 - np.cos(np.linspace(0, np.pi, nombre_points)))
 
+    # Calcule les coordonnées y en fonction des équations spécifiées pour le profil NACA
     yt = 5 * t * (0.2969 * np.sqrt(xc) - 0.1260 * xc - 0.3516 * xc ** 2 + 0.2843 * xc ** 3 - 0.1036 * xc ** 4)
 
     x = xc * corde
