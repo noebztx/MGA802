@@ -1,7 +1,3 @@
-import numpy as np
+import pandas as pd
 
-N1 = 2
-N2 = 2
-
-b = np.ones((7, 4, 8)).size
-print(b)
+df = pd.read_csv('C:\\Users\\noeba\\PycharmProjects\\MGA802\\Scripts\\1-population_census2021.csv', index_col=0)
